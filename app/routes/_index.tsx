@@ -44,7 +44,11 @@ export async function loader({ request }: { request: Request }) {
     }));
 
     const bpsResponse = await fetch(
-      `https://webapi.bps.go.id/v1/api/list/model/publication/domain/7408/page/${bpsPage}/key/f5aeadfbbc7c0a8915154a3648c65eef/`
+      `${import.meta.env.VITE_BPS_URL_BASE}model/${
+        import.meta.env.VITE_BPS_MODEL_PUBLICATION
+      }/domain/${import.meta.env.VITE_BPS_DOMAIN}/page/${bpsPage}/key/${
+        import.meta.env.VITE_BPS_KEY
+      }/`
     );
     const bpsData = bpsResponse.ok ? await bpsResponse.json() : [];
 
