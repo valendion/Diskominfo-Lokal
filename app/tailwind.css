@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Delius+Swash+Caps&family=Emilys+Candy&display=swap");
+
+@layer components {
+  .wrapper-simple-screen {
+    @apply mx-auto max-w-screen-xl;
+  }
+
+  .wrapper-simple-padding {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+}
