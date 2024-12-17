@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Delius+Swash+Caps&family=Emilys+Candy&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Delius&family=Delius+Swash+Caps&family=Emilys+Candy&display=swap");
 
 @layer components {
   .wrapper-simple-screen {
