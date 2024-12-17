@@ -69,6 +69,10 @@ export default function Index() {
     bpsPage: number;
   }>();
 
+  console.log("News", news);
+  console.log("bps", bps);
+  console.log("bpsPage", bpsPage);
+
   return (
     <div className="wrapper-simple-screen wrapper-simple-padding">
       <div className="flex flex-col md:flex-row">
