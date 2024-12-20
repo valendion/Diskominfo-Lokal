@@ -4,11 +4,11 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "remix vite:dev",
     "build": "remix vite:build",
-    "start": "wrangler pages dev ./build/client",
-    "deploy": "wrangler pages deploy ./build/client",
+    "deploy": "wrangler deploy",
+    "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "wrangler dev",
     "typecheck": "tsc",
     "typegen": "wrangler types"
   },
@@ -16,6 +16,7 @@
     "@remix-run/node": "^2.15.0",
     "@remix-run/react": "^2.15.0",
     "@remix-run/serve": "^2.15.0",
+    "@remix-run/server-runtime": "^2.15.1",
     "@types/leaflet": "^1.9.15",
     "isbot": "^4.1.0",
     "leaflet": "^1.9.4",
@@ -29,8 +30,6 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241216.0",
-    "@remix-run/cloudflare": "^2.15.1",
-    "@remix-run/cloudflare-pages": "^2.15.1",
     "@remix-run/dev": "^2.15.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",

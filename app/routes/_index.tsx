@@ -58,7 +58,6 @@ export const loader: LoaderFunction = async ({ request }) => {
       });
 
       if (!mediaResponse.ok) {
-        console.error("Media API Error:", await mediaResponse.text());
         throw new Error(
           `Media API failed with status: ${mediaResponse.status}`
         );
@@ -83,8 +82,6 @@ export const loader: LoaderFunction = async ({ request }) => {
       import.meta.env.VITE_BPS_KEY
     }/`;
 
-    console.log("Fetching BPS from:", bpsUrl);
-
     const bpsResponse = await fetch(bpsUrl, {
       headers: {
         Accept: "application/json",
@@ -93,7 +90,6 @@ export const loader: LoaderFunction = async ({ request }) => {
     });
 
     if (!bpsResponse.ok) {
-      console.error("BPS API Error:", await bpsResponse.text());
       throw new Error(`BPS API failed with status: ${bpsResponse.status}`);
     }
 
