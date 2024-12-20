@@ -1,5 +1,4 @@
 import type { MetaFunction, LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import { useLoaderData, useRouteError } from "@remix-run/react";
 import NewsKolut from "~/components/news/NewsKolut";
 import { LoaderData, MediaData } from "~/model/NewsModel";
@@ -96,7 +95,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     const bpsData = await bpsResponse.json();
 
     // Return all data
-    return json<LoaderData>({
+    return Response.json<LoaderData>({
       news: enhancedNewsData,
       bps: bpsData,
       bpsPage,
