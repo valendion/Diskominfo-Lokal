@@ -9,10 +9,7 @@ import BPSBook from "~/components/bps/BPSBook";
 
 // Meta
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Home" },
-    { name: "description", content: "Welcome to our platform" },
-  ];
+  return [{ title: "Home" }, { name: "Home", content: "Home" }];
 };
 
 // Loader
@@ -95,7 +92,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     const bpsData = await bpsResponse.json();
 
     // Return all data
-    return Response.json<LoaderData>({
+    return Response.json({
       news: enhancedNewsData,
       bps: bpsData,
       bpsPage,
