@@ -26,9 +26,6 @@ importers:
       '@types/leaflet':
         specifier: ^1.9.15
         version: 1.9.15
-      i:
-        specifier: ^0.3.7
-        version: 0.3.7
       isbot:
         specifier: ^4.1.0
         version: 4.4.0
@@ -2302,10 +2299,6 @@ packages:
   human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
-
-  i@0.3.7:
-    resolution: {integrity: sha512-FYz4wlXgkQwIPqhzC5TdNMLSE5+GS1IIDJZY/1ZiEPCT2S3COUVZeT5OW4BmW4r5LHLQuOosSwsvnroG9GR59Q==}
-    engines: {node: '>=0.4'}
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -6767,8 +6760,6 @@ snapshots:
   https-browserify@1.0.0: {}
 
   human-signals@2.1.0: {}
-
-  i@0.3.7: {}
 
   iconv-lite@0.4.24:
     dependencies:
