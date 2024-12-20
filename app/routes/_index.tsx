@@ -130,22 +130,22 @@ export default function Index() {
     <div className="wrapper-simple-screen wrapper-simple-padding">
       <div className="flex flex-col md:flex-row">
         <Tagline />
-        {/* <ClientOnly fallback={<div>Loading map...</div>}>
+        <ClientOnly fallback={<div>Loading map...</div>}>
           {() => <MapBody />}
-        </ClientOnly> */}
+        </ClientOnly>
       </div>
 
-      {/* <div className="mt-8">
+      <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>
           {() => <NewsKolut posts={news} />}
         </ClientOnly>
-      </div> */}
+      </div>
 
-      {/* <div className="mt-8">
+      <div className="mt-8">
         <ClientOnly fallback={<div>Loading BPS data...</div>}>
           {() => <BPSBook bps={bps} currentPage={bpsPage} />}
         </ClientOnly>
-      </div> */}
+      </div>
     </div>
   );
 }
