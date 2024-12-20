@@ -1,7 +1,8 @@
 name = "template"
-main = "./build/server/index.js" # Hanya satu definisi main
+main = "./build/server/index.js"
 workers_dev = true
 compatibility_date = "2024-09-26"
+compatibility_flags = ["nodejs_compat"]  # Tambahkan flag ini
 
 kv_namespaces = [
   { binding = "cache", id = "cache" }
