@@ -150,10 +150,10 @@ export default function Index() {
       <div className="mt-8">
         <ClientOnly fallback={<div>Loading BPS data...</div>}>
           {() =>
-            bps.length > 0 ? (
+            bps.data[1].length > 0 ? (
               <BPSBook bps={bps} currentPage={bpsPage} />
             ) : (
-              <div>No Books available</div>
+              <div>No news available</div>
             )
           }
         </ClientOnly>
