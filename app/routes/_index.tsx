@@ -124,11 +124,15 @@ export function ErrorBoundary() {
 
 // Main Component
 export default function Index() {
-  const { news = [], bps = [], bpsPage } = useLoaderData<LoaderData>();
+  const {
+    news = [],
+    bps = { data: [] },
+    bpsPage = 1,
+  } = useLoaderData<LoaderData>();
 
   return (
     <div className="wrapper-simple-screen wrapper-simple-padding">
-      {/* <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row">
         <Tagline />
         <ClientOnly fallback={<div>Loading map...</div>}>
           {() => <MapBody />}
@@ -138,7 +142,7 @@ export default function Index() {
       <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>
           {() =>
-            news.length > 0 ? (
+            Array.isArray(news) && news.length > 0 ? (
               <NewsKolut posts={news} />
             ) : (
               <div>No news available</div>
@@ -150,14 +154,14 @@ export default function Index() {
       <div className="mt-8">
         <ClientOnly fallback={<div>Loading BPS data...</div>}>
           {() =>
-            bps.data[1].length > 0 ? (
+            Array.isArray(bps.data) && bps.data.length > 0 ? (
               <BPSBook bps={bps} currentPage={bpsPage} />
             ) : (
-              <div>No news available</div>
+              <div>No BPS data available</div>
             )
           }
         </ClientOnly>
-      </div> */}
+      </div>
     </div>
   );
 }
