@@ -128,7 +128,7 @@ export default function Index() {
 
   return (
     <div className="wrapper-simple-screen wrapper-simple-padding">
-      <div className="flex flex-col md:flex-row">
+      {/* <div className="flex flex-col md:flex-row">
         <Tagline />
         <ClientOnly fallback={<div>Loading map...</div>}>
           {() => <MapBody />}
@@ -157,7 +157,7 @@ export default function Index() {
             )
           }
         </ClientOnly>
-      </div>
+      </div> */}
     </div>
   );
 }
