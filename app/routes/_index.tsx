@@ -137,13 +137,25 @@ export default function Index() {
 
       <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>
-          {() => <NewsKolut posts={news} />}
+          {() =>
+            news.length > 0 ? (
+              <NewsKolut posts={news} />
+            ) : (
+              <div>No news available</div>
+            )
+          }
         </ClientOnly>
       </div>
 
       <div className="mt-8">
         <ClientOnly fallback={<div>Loading BPS data...</div>}>
-          {() => <BPSBook bps={bps} currentPage={bpsPage} />}
+          {() =>
+            bps.length > 0 ? (
+              <BPSBook bps={bps} currentPage={bpsPage} />
+            ) : (
+              <div>No Books available</div>
+            )
+          }
         </ClientOnly>
       </div>
     </div>
