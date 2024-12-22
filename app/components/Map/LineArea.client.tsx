@@ -7,6 +7,9 @@ import { colorMapLine } from "~/utils/color/ColorMap";
 export const LineArea = ({
   line,
   index,
+  hoveredLineIndex,
+  setHoveredLineIndex,
+  order,
 }: {
   line: {
     name: string;
@@ -16,6 +19,9 @@ export const LineArea = ({
     }[];
   };
   index: number;
+  hoveredLineIndex: number | null;
+  setHoveredLineIndex: (index: number | null) => void;
+  order: number;
 }) => {
   const [coordinates, setCoordinates] = useState<LatLngExpression[]>([]);
 
@@ -34,16 +40,36 @@ export const LineArea = ({
     }
   }, [line]);
 
+  const isHovered = hoveredLineIndex === order;
+  const shouldBeDimmed = hoveredLineIndex !== null && !isHovered;
+
   const lineOptions = {
     color: colorMapLine[index] || "#000",
-    // Remove fillColor and fillOpacity for LineArea
     fillColor: colorMapLine[index] || "#000",
-    fillOpacity: 0.3,
+    fillOpacity: shouldBeDimmed ? 0.1 : 0.3, // Meredup saat yang lain di-hover
     weight: 1,
   };
 
+  const handleMouseOver = (e: any) => {
+    setHoveredLineIndex(order);
+    e.target.bringToFront();
+    e.target.openPopup(); // Show popup on hover
+  };
+
+  const handleMouseOut = (e: any) => {
+    setHoveredLineIndex(null);
+    e.target.closePopup(); // Close popup on mouse out
+  };
+
   return (
-    <Polygon key={index} positions={coordinates} pathOptions={lineOptions}>
+    <Polygon
+      positions={coordinates}
+      pathOptions={lineOptions}
+      eventHandlers={{
+        mouseover: handleMouseOver,
+        mouseout: handleMouseOut,
+      }}
+    >
       <Popup>{line.name}</Popup>
     </Polygon>
   );

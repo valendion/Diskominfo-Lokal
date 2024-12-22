@@ -2,6 +2,7 @@ export const coordinatePolygonMap = [
   {
     name: "Katoi",
     type: "Polygon",
+    order: 1,
     coordinates: [
       [
         [120.8977406, -3.383325],
@@ -29,6 +30,7 @@ export const coordinatePolygonMap = [
   {
     name: "Batu Putih",
     type: "Polygon",
+    order: 2,
     coordinates: [
       [
         [121.0808032, -2.9868137],
@@ -63,6 +65,7 @@ export const coordinatePolygonMap = [
   {
     name: "Kodeoha",
     type: "Polygon",
+    order: 3,
     coordinates: [
       [
         [120.9332482, -3.3429057],
@@ -85,6 +88,7 @@ export const coordinatePolygonMap = [
   {
     name: "Lasusua",
     type: "Polygon",
+    order: 4,
     coordinates: [
       [
         [120.9439914, -3.6066988],
@@ -114,6 +118,7 @@ export const coordinatePolygonMap = [
   {
     name: "Ngapa",
     type: "Polygon",
+    order: 5,
     coordinates: [
       [
         [121.0649354, -3.2899642],
@@ -143,6 +148,7 @@ export const coordinatePolygonMap = [
   {
     name: "Pakue",
     type: "Polygon",
+    order: 6,
     coordinates: [
       [
         [121.0454729, -3.1774242],
@@ -173,6 +179,7 @@ export const coordinatePolygonMap = [
   {
     name: "Pakue Tengah",
     type: "Polygon",
+    order: 7,
     coordinates: [
       [
         [121.0588135, -3.1292359],
@@ -204,6 +211,7 @@ export const coordinatePolygonMap = [
   {
     name: "Pakue Utara",
     type: "Polygon",
+    order: 8,
     coordinates: [
       [
         [121.0502655, -3.095219],
@@ -235,6 +243,7 @@ export const coordinatePolygonMap = [
   {
     name: "Rante Angin",
     type: "Polygon",
+    order: 9,
     coordinates: [
       [
         [121.0925512, -3.626681],
@@ -262,6 +271,7 @@ export const coordinatePolygonMap = [
   {
     name: "Tiwu",
     type: "Polygon",
+    order: 10,
     coordinates: [
       [
         [120.9511485, -3.3122921],
@@ -288,6 +298,7 @@ export const coordinatePolygonMap = [
   {
     name: "Wawo",
     type: "Polygon",
+    order: 11,
     coordinates: [
       [
         [121.0150585, -3.6734742],
@@ -317,6 +328,7 @@ export const coordinatePolygonMap = [
   {
     name: "Wotunohu",
     type: "Polygon",
+    order: 12,
     coordinates: [
       [
         [121.0068559, -3.2457238],
@@ -339,6 +351,7 @@ export const coordinatePolygonMap = [
   {
     name: "Lambai",
     type: "Polygon",
+    order: 13,
     coordinates: [
       [
         [120.9439914, -3.6066988],
@@ -368,6 +381,7 @@ export const coordinateLineMap = [
   {
     name: "Tolala",
     type: "LineString",
+    order: 14,
     lines: [
       {
         coordinates: [
@@ -469,6 +483,7 @@ export const coordinateLineMap = [
   {
     name: "Porehu",
     type: "LineString",
+    order: 15,
     lines: [
       {
         coordinates: [
