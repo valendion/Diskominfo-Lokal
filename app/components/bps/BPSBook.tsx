@@ -1,5 +1,5 @@
 import BPSBookCard from "../Card/BPSBookCard";
-import { PaginationComp } from "../base/PaginationComp.client";
+import { PaginationComp } from "../base/PaginationComp";
 import { useNavigate, ScrollRestoration } from "@remix-run/react";
 
 const BPSBook = ({ bps, currentPage }: { bps: any; currentPage: number }) => {

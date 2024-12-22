@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { colorMapPolygon } from "~/utils/color/ColorMap";
 
-export const PolygonArea = ({
+const PolygonArea = ({
   polygonData,
   index,
   hoveredIndex,
@@ -85,3 +85,4 @@ export const PolygonArea = ({
     </Polygon>
   );
 };
+export default PolygonArea;

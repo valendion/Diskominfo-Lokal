@@ -1,12 +1,12 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { PolygonArea } from "~/components/Map/PolygonArea.client";
+import PolygonArea from "~/components/Map/PolygonArea.client";
 import {
   coordinateLineMap,
   coordinatePolygonMap,
 } from "~/utils/const/CoordinateMap";
 
-import { LineArea } from "./LineArea.client";
+import LineArea from "./LineArea.client";
 import { useState } from "react";
 
 export const MapBody = () => {

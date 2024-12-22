@@ -144,6 +144,8 @@ export default function Index() {
             )
           }
         </ClientOnly>
+
+        <NewsKolut posts={news} />
       </div>
 
       <div className="mt-8">
@@ -156,6 +158,8 @@ export default function Index() {
             )
           }
         </ClientOnly>
+
+        <BPSBook bps={bps} currentPage={bpsPage} />
       </div>
     </div>
   );

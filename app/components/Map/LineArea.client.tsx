@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import { colorMapLine } from "~/utils/color/ColorMap";
 
-export const LineArea = ({
+const LineArea = ({
   line,
   index,
   hoveredLineIndex,
@@ -74,3 +74,5 @@ export const LineArea = ({
     </Polygon>
   );
 };
+
+export default LineArea;
