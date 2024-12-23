@@ -16,7 +16,7 @@ export const MapBody = () => {
       <MapContainer
         center={[-3.3, 121]}
         zoom={10}
-        className="w-full h-[500px] md:h-[800px] !bg- "
+        className="w-full h-[500px] md:h-[800px] "
         scrollWheelZoom={false} // Menonaktifkan zoom dengan scroll mouse
         dragging={false} // Menonaktifkan drag
         zoomControl={false} // Menghilangkan tombol zoom

@@ -6,6 +6,7 @@ import { ClientOnly } from "remix-utils/client-only";
 import { MapBody } from "~/components/Map/MapBody.client";
 import Tagline from "~/components/base/Tagline";
 import BPSBook from "~/components/bps/BPSBook";
+import KolakaUtaraMap from "~/components/Map/KolakaUtaraMap";
 
 // Meta
 export const meta: MetaFunction = () => {
@@ -129,9 +130,12 @@ export default function Index() {
     <div className="wrapper-simple-screen wrapper-simple-padding">
       <div className="flex flex-col ">
         <Tagline />
-        <ClientOnly fallback={<div>Loading map...</div>}>
+        {/* <ClientOnly fallback={<div>Loading map...</div>}>
           {() => <MapBody />}
-        </ClientOnly>
+        </ClientOnly> */}
+        <KolakaUtaraMap />
+
+        {/* <MapBody /> */}
       </div>
 
       <div className="mt-8">
@@ -144,8 +148,6 @@ export default function Index() {
             )
           }
         </ClientOnly>
-
-        <NewsKolut posts={news} />
       </div>
 
       <div className="mt-8">
@@ -158,8 +160,6 @@ export default function Index() {
             )
           }
         </ClientOnly>
-
-        <BPSBook bps={bps} currentPage={bpsPage} />
       </div>
     </div>
   );
