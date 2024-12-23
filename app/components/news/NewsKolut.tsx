@@ -4,10 +4,10 @@ export default function NewsKolut({ posts }) {
   return (
     <div>
       <h2 className="text-2xl font-bold my-8">Berita Terbaru</h2>
-      <div className="pb-5 flex mt-10 space-x-4 overflow-x-auto overflow-y-hidden max-w-full px-4">
+      <div className="pb-5 grid grid-cols-3 gap-4 mt-10 max-w-full px-4">
         {posts.length > 0 ? (
           posts.map((post) => (
-            <div key={post.id} className="flex-shrink-0 w-80">
+            <div key={post.id} className="">
               <NewsCard
                 title={post.title || "No Title"}
                 excerpt={post.excerpt || "No Excerpt"}

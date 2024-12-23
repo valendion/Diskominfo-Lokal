@@ -130,12 +130,8 @@ export default function Index() {
     <div className="wrapper-simple-screen wrapper-simple-padding">
       <div className="flex flex-col ">
         <Tagline />
-        {/* <ClientOnly fallback={<div>Loading map...</div>}>
-          {() => <MapBody />}
-        </ClientOnly> */}
-        <KolakaUtaraMap />
 
-        {/* <MapBody /> */}
+        <KolakaUtaraMap />
       </div>
 
       <div className="mt-8">

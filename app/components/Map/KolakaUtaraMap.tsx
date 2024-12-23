@@ -22,11 +22,8 @@ const colorMapPolygon = [
 const KolakaUtaraMap = () => {
   const [selectedRegion, setSelectedRegion] = useState(null);
   const [hoveredRegion, setHoveredRegion] = useState(null);
-  const [tooltip, setTooltip] = useState({
-    show: false,
+  const [name, setName] = useState({
     content: "",
-    x: 0,
-    y: 0,
   });
 
   // Extract regions from geoJSON data
@@ -66,20 +63,14 @@ const KolakaUtaraMap = () => {
   };
 
   const handleMouseMove = (e, name) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setTooltip({
-      show: true,
+    setName({
       content: name,
-      x: x,
-      y: y,
     });
     setHoveredRegion(name);
   };
 
   const handleMouseLeave = () => {
-    setTooltip({ show: false, content: "", x: 0, y: 0 });
+    setName({ content: "" });
     setHoveredRegion(null);
   };
 
@@ -108,7 +99,7 @@ const KolakaUtaraMap = () => {
                 const pathData = `M ${transformedCoords
                   .map((coord) => coord.join(","))
                   .join(" L ")} Z`;
-                const isSelected = selectedRegion === feature.properties.name;
+
                 const isHovered = hoveredRegion === feature.properties.name;
                 const color = colorMapPolygon[feature.properties.order - 1];
 
