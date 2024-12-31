@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Map } from "lucide-react";
 import { geoJsonKolakaUtara } from "~/utils/const/CoordinateMap";
-import PopOver from "../base/PopOver";
 
 const colorMapPolygon = [
+  "#1D267D",
+  "#0A2647",
   "#4335A7",
   "#432E54",
   "#9EADC8",
@@ -20,7 +21,6 @@ const colorMapPolygon = [
 ];
 
 const KolakaUtaraMap = () => {
-  const [selectedRegion, setSelectedRegion] = useState(null);
   const [hoveredRegion, setHoveredRegion] = useState(null);
   const [name, setName] = useState({
     content: "",
@@ -57,8 +57,10 @@ const KolakaUtaraMap = () => {
     return coords.map((coord) => [
       ((coord[0] - bounds.minX) / (bounds.maxX - bounds.minX)) * scale +
         padding,
-      ((coord[1] - bounds.minY) / (bounds.maxY - bounds.minY)) * scale +
-        padding,
+      // Flip the Y-axis to correct the inverted map
+      scale +
+        padding -
+        ((coord[1] - bounds.minY) / (bounds.maxY - bounds.minY)) * scale,
     ]);
   };
 
@@ -75,7 +77,7 @@ const KolakaUtaraMap = () => {
   };
 
   return (
-    <div className="w-full  bg-white rounded-lg shadow-lg">
+    <div className="w-full bg-white rounded-lg shadow-lg">
       <div className="p-6 border-b">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -86,8 +88,8 @@ const KolakaUtaraMap = () => {
       </div>
 
       <div className="p-6">
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="md:col-span-2 relative">
+        <div className="gap-4">
+          <div className="relative">
             <svg
               viewBox={`0 0 ${scale + padding * 2} ${scale + padding * 2}`}
               className="w-full h-full border rounded-lg"
@@ -100,19 +102,16 @@ const KolakaUtaraMap = () => {
                   .map((coord) => coord.join(","))
                   .join(" L ")} Z`;
 
-                const isHovered = hoveredRegion === feature.properties.name;
                 const color = colorMapPolygon[feature.properties.order - 1];
 
                 return (
                   <path
-                    key={feature.properties.name}
                     d={pathData}
                     fill={color}
+                    key={feature.properties.name}
                     stroke="#1e40af"
                     strokeWidth="1"
-                    opacity={hoveredRegion === null || isHovered ? 1 : 0.3}
-                    className="transition-all duration-200 cursor-pointer hover:opacity-100"
-                    onClick={() => setSelectedRegion(feature.properties.name)}
+                    className="transition-all duration-200"
                     onMouseMove={(e) =>
                       handleMouseMove(e, feature.properties.name)
                     }
@@ -121,31 +120,6 @@ const KolakaUtaraMap = () => {
                 );
               })}
             </svg>
-          </div>
-
-          <div className="space-y-2">
-            <h3 className="font-semibold text-lg">Daftar Kecamatan:</h3>
-            <div className="space-y-1">
-              {regions.map((region, index) => (
-                <div
-                  key={region.name}
-                  className={`p-2 rounded-lg cursor-pointer transition-all duration-200`}
-                  style={{
-                    backgroundColor: colorMapPolygon[index],
-                    opacity:
-                      hoveredRegion === null || hoveredRegion === region.name
-                        ? 1
-                        : 0.3,
-                    color: "white",
-                  }}
-                  onClick={() => setSelectedRegion(region.name)}
-                  onMouseEnter={() => setHoveredRegion(region.name)}
-                  onMouseLeave={() => setHoveredRegion(null)}
-                >
-                  {region.name}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

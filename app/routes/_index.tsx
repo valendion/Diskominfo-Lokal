@@ -3,10 +3,12 @@ import { useLoaderData, useRouteError } from "@remix-run/react";
 import NewsKolut from "~/components/news/NewsKolut";
 import { LoaderData, MediaData } from "~/model/NewsModel";
 import { ClientOnly } from "remix-utils/client-only";
-import { MapBody } from "~/components/Map/MapBody.client";
+
 import Tagline from "~/components/base/Tagline";
 import BPSBook from "~/components/bps/BPSBook";
 import KolakaUtaraMap from "~/components/Map/KolakaUtaraMap";
+import MapWithPing from "~/components/Map/MapWithPing";
+import MapBody from "~/components/Map/MapBody.client";
 
 // Meta
 export const meta: MetaFunction = () => {
@@ -130,12 +132,16 @@ export default function Index() {
     <div className="wrapper-simple-screen wrapper-simple-padding">
       <div className="flex flex-col ">
         <Tagline />
+
+        {/* <ClientOnly fallback={<div>Loading map...</div>}>
+          {() => <MapBody />}
+        </ClientOnly> */}
         <ClientOnly fallback={<div>Loading news...</div>}>
-          {() => <KolakaUtaraMap />}
+          {() => <MapWithPing />}
         </ClientOnly>
       </div>
 
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>
           {() =>
             news.length > 0 ? (
@@ -157,7 +163,7 @@ export default function Index() {
             )
           }
         </ClientOnly>
-      </div>
+      </div> */}
     </div>
   );
 }
