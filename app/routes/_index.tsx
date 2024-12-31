@@ -136,12 +136,12 @@ export default function Index() {
         {/* <ClientOnly fallback={<div>Loading map...</div>}>
           {() => <MapBody />}
         </ClientOnly> */}
-        <ClientOnly fallback={<div>Loading news...</div>}>
+        {/* <ClientOnly fallback={<div>Loading news...</div>}>
           {() => <MapWithPing />}
-        </ClientOnly>
+        </ClientOnly> */}
       </div>
 
-      {/* <div className="mt-8">
+      <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>
           {() =>
             news.length > 0 ? (
@@ -163,7 +163,7 @@ export default function Index() {
             )
           }
         </ClientOnly>
-      </div> */}
+      </div>
     </div>
   );
 }
