@@ -141,7 +141,7 @@ export default function Index() {
         </ClientOnly> */}
       </div>
 
-      <div className="mt-8">
+      {/* <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>
           {() =>
             news.length > 0 ? (
@@ -163,7 +163,7 @@ export default function Index() {
             )
           }
         </ClientOnly>
-      </div>
+      </div> */}
     </div>
   );
 }
