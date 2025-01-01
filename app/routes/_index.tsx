@@ -126,7 +126,7 @@ export const meta: MetaFunction = () => {
 
 // Main Component
 export default function Index() {
-  const { news = [], bps = [], bpsPage } = useLoaderData<LoaderData>();
+  // const { news = [], bps = [], bpsPage } = useLoaderData<LoaderData>();
 
   return (
     <div className="wrapper-simple-screen wrapper-simple-padding">
@@ -136,9 +136,9 @@ export default function Index() {
         {/* <ClientOnly fallback={<div>Loading map...</div>}>
           {() => <MapBody />}
         </ClientOnly> */}
-        {/* <ClientOnly fallback={<div>Loading news...</div>}>
+        <ClientOnly fallback={<div>Loading news...</div>}>
           {() => <MapWithPing />}
-        </ClientOnly> */}
+        </ClientOnly>
       </div>
 
       {/* <div className="mt-8">
