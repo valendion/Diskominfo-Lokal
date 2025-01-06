@@ -47,6 +47,9 @@ importers:
       react-leaflet:
         specifier: ^4.2.1
         version: 4.2.1(leaflet@1.9.4)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-scroll-parallax:
+        specifier: ^3.4.5
+        version: 3.4.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       remix-utils:
         specifier: ^7.7.0
         version: 7.7.0(@remix-run/cloudflare@2.15.1(@cloudflare/workers-types@4.20241216.0)(typescript@5.7.2))(@remix-run/node@2.15.1(typescript@5.7.2))(@remix-run/react@2.15.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2))(@remix-run/router@1.21.0)(react@19.0.0)(zod@3.24.1)
@@ -1388,6 +1391,9 @@ packages:
   basic-auth@2.0.1:
     resolution: {integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==}
     engines: {node: '>= 0.8'}
+
+  bezier-easing@2.1.0:
+    resolution: {integrity: sha512-gbIqZ/eslnUFC1tjEvtz0sgx+xTK20wDnYMIA27VA04R7w6xxXQPZDbibjA9DTWZRA2CXtwHykkVzlCaAJAZig==}
 
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
@@ -3122,6 +3128,10 @@ packages:
   pako@1.0.11:
     resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
 
+  parallax-controller@1.7.1:
+    resolution: {integrity: sha512-facVMEBnUynzMN7hCSqyNpF6uyCpVIl4XAUyTR9D8q2JlhgyPY6bZtj/OkFk3+Cpka1TnYCppQb8BzDWHtSaZg==}
+    engines: {node: '>=12'}
+
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -3430,6 +3440,13 @@ packages:
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
+
+  react-scroll-parallax@3.4.5:
+    resolution: {integrity: sha512-4NLZQ8cZEUyxoA95DfrXWneOOUSFrFmpM0dZNzMErmuJ0LzY+CCw8Xw0hqB6xxHWxNknfs46AozyIPSWkZeucA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16.8.0-0 || >=17.0.1 || ^18.0.0
+      react-dom: ^16.8.0-0 || >=17.0.1 || ^18.0.0
 
   react@19.0.0:
     resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
@@ -5518,6 +5535,8 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
     optional: true
+
+  bezier-easing@2.1.0: {}
 
   binary-extensions@2.3.0: {}
 
@@ -7747,6 +7766,10 @@ snapshots:
 
   pako@1.0.11: {}
 
+  parallax-controller@1.7.1:
+    dependencies:
+      bezier-easing: 2.1.0
+
   parent-module@1.0.1:
     dependencies:
       callsites: 3.1.0
@@ -8043,6 +8066,12 @@ snapshots:
     dependencies:
       '@remix-run/router': 1.21.0
       react: 19.0.0
+
+  react-scroll-parallax@3.4.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      parallax-controller: 1.7.1
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   react@19.0.0: {}
 

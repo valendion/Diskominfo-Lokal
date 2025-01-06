@@ -7,12 +7,15 @@
 import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 startTransition(() => {
   hydrateRoot(
     document,
     <StrictMode>
-      <RemixBrowser />
+      <ParallaxProvider>
+        <RemixBrowser />
+      </ParallaxProvider>
     </StrictMode>
   );
 });

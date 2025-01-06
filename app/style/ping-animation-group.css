@@ -1,0 +1,56 @@
+/* Container untuk titik */
+.dots-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2vw; /* Responsif dengan lebar layar */
+}
+
+/* Titik dasar */
+.titik {
+  width: 10vw; /* Ukuran responsif berdasarkan lebar layar */
+  height: 10vw;
+  background-color: #3498db;
+  border-radius: 50%;
+  animation: pulse 3.5s infinite ease-in-out;
+}
+
+/* Delay untuk setiap titik */
+.titik:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.titik:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+.titik:nth-child(3) {
+  animation-delay: 2.5s;
+}
+
+/* Animasi besar kecil */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+/* Media query untuk layar kecil */
+@media (max-width: 768px) {
+  .titik {
+    width: 5vw; /* Ukuran lebih besar untuk layar kecil */
+    height: 5vw;
+  }
+}
+
+/* Media query untuk layar sangat kecil */
+@media (max-width: 480px) {
+  .titik {
+    width: 8vw; /* Ukuran lebih besar untuk layar sangat kecil */
+    height: 8vw;
+  }
+}
