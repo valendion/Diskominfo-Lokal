@@ -2,22 +2,40 @@ import { useState } from "react";
 import { Map } from "lucide-react";
 import { geoJsonKolakaUtara } from "~/utils/const/CoordinateMap";
 
+// const colorMapPolygon = [
+//   "#1D267D",
+//   "#0A2647",
+//   "#4335A7",
+//   "#432E54",
+//   "#9EADC8",
+//   "#B9E28C",
+//   "#D6D84F",
+//   "#525B44",
+//   "#2A3335",
+//   "#0A97B0",
+//   "#D91656",
+//   "#EB5B00",
+//   "#3B1C32",
+//   "#EB3678",
+//   "#005B41",
+// ];
+
 const colorMapPolygon = [
-  "#1D267D",
-  "#0A2647",
-  "#4335A7",
-  "#432E54",
-  "#9EADC8",
-  "#B9E28C",
-  "#D6D84F",
-  "#525B44",
-  "#2A3335",
-  "#0A97B0",
-  "#D91656",
-  "#EB5B00",
-  "#3B1C32",
-  "#EB3678",
-  "#005B41",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
+  "#979797",
 ];
 
 const KolakaUtaraMap = () => {
@@ -50,8 +68,8 @@ const KolakaUtaraMap = () => {
   );
 
   // Scale and transform coordinates to fit SVG
-  const scale = 1000;
-  const padding = 50;
+  const scale = 100;
+  const padding = 30;
 
   const transformCoordinates = (coords) => {
     return coords.map((coord) => [
@@ -77,8 +95,8 @@ const KolakaUtaraMap = () => {
   };
 
   return (
-    <div className="w-full bg-white rounded-lg shadow-lg">
-      <div className="p-6 border-b">
+    <div className="w-full bg-white ">
+      <div className="p-0 ">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Map className="h-6 w-6" />
@@ -87,40 +105,38 @@ const KolakaUtaraMap = () => {
         </div>
       </div>
 
-      <div className="p-6">
-        <div className="gap-4">
-          <div className="relative">
-            <svg
-              viewBox={`0 0 ${scale + padding * 2} ${scale + padding * 2}`}
-              className="w-full h-full border rounded-lg"
-            >
-              {geoJsonKolakaUtara[0].features.map((feature) => {
-                const transformedCoords = transformCoordinates(
-                  feature.geometry.coordinates[0]
-                );
-                const pathData = `M ${transformedCoords
-                  .map((coord) => coord.join(","))
-                  .join(" L ")} Z`;
+      <div className="">
+        <div className="relative">
+          <svg
+            viewBox={`0 0 ${scale + padding * 2} ${scale + padding * 2}`}
+            className="w-full h-full rounded-lg"
+          >
+            {geoJsonKolakaUtara[0].features.map((feature) => {
+              const transformedCoords = transformCoordinates(
+                feature.geometry.coordinates[0]
+              );
+              const pathData = `M ${transformedCoords
+                .map((coord) => coord.join(","))
+                .join(" L ")} Z`;
 
-                const color = colorMapPolygon[feature.properties.order - 1];
+              const color = colorMapPolygon[feature.properties.order - 1];
 
-                return (
-                  <path
-                    d={pathData}
-                    fill={color}
-                    key={feature.properties.name}
-                    stroke="#1e40af"
-                    strokeWidth="1"
-                    className="transition-all duration-200"
-                    onMouseMove={(e) =>
-                      handleMouseMove(e, feature.properties.name)
-                    }
-                    onMouseLeave={handleMouseLeave}
-                  />
-                );
-              })}
-            </svg>
-          </div>
+              return (
+                <path
+                  d={pathData}
+                  fill={color}
+                  key={feature.properties.name}
+                  stroke="grey"
+                  strokeWidth="1"
+                  className="transition-all duration-200"
+                  onMouseMove={(e) =>
+                    handleMouseMove(e, feature.properties.name)
+                  }
+                  onMouseLeave={handleMouseLeave}
+                />
+              );
+            })}
+          </svg>
         </div>
       </div>
     </div>

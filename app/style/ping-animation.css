@@ -8,7 +8,7 @@
 .dot {
   position: relative;
   width: fit-content;
-  background-color: #979797;
+  background-color: #fff;
   border-radius: 40px;
   width: 1.75rem;
   height: 1.75rem;
@@ -17,12 +17,12 @@
 .heartbeat {
   position: absolute;
   width: fit-content;
-  background-color: #979797;
+  background-color: #fff;
   border-radius: 40px;
   width: 3.75rem;
   height: 3.75rem;
   opacity: 0.75;
-  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @keyframes ping {
