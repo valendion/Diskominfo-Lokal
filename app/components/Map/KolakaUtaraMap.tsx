@@ -96,48 +96,42 @@ const KolakaUtaraMap = () => {
 
   return (
     <div className="w-full bg-white ">
-      <div className="p-0 ">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Map className="h-6 w-6" />
-            <h2 className="text-xl font-bold">Peta Kolaka Utara</h2>
-          </div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Map className="h-6 w-6" />
+          <h2 className="text-xl font-bold">Peta Kolaka Utara</h2>
         </div>
       </div>
 
-      <div className="">
-        <div className="relative">
-          <svg
-            viewBox={`0 0 ${scale + padding * 2} ${scale + padding * 2}`}
-            className="w-full h-full rounded-lg"
-          >
-            {geoJsonKolakaUtara[0].features.map((feature) => {
-              const transformedCoords = transformCoordinates(
-                feature.geometry.coordinates[0]
-              );
-              const pathData = `M ${transformedCoords
-                .map((coord) => coord.join(","))
-                .join(" L ")} Z`;
+      <div className="relative aspect-square">
+        <svg
+          viewBox={`0 0 ${scale + padding * 2} ${scale + padding * 2}`}
+          className="w-full h-full rounded-lg"
+        >
+          {geoJsonKolakaUtara[0].features.map((feature) => {
+            const transformedCoords = transformCoordinates(
+              feature.geometry.coordinates[0]
+            );
+            const pathData = `M ${transformedCoords
+              .map((coord) => coord.join(","))
+              .join(" L ")} Z`;
 
-              const color = colorMapPolygon[feature.properties.order - 1];
+            const color = colorMapPolygon[feature.properties.order - 1];
 
-              return (
-                <path
-                  d={pathData}
-                  fill={color}
-                  key={feature.properties.name}
-                  stroke="grey"
-                  strokeWidth="1"
-                  className="transition-all duration-200"
-                  onMouseMove={(e) =>
-                    handleMouseMove(e, feature.properties.name)
-                  }
-                  onMouseLeave={handleMouseLeave}
-                />
-              );
-            })}
-          </svg>
-        </div>
+            return (
+              <path
+                d={pathData}
+                fill={color}
+                key={feature.properties.name}
+                stroke="grey"
+                strokeWidth="1"
+                className="transition-all duration-200"
+                onMouseMove={(e) => handleMouseMove(e, feature.properties.name)}
+                onMouseLeave={handleMouseLeave}
+              />
+            );
+          })}
+        </svg>
       </div>
     </div>
   );
