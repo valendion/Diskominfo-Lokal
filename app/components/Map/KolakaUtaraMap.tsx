@@ -76,7 +76,7 @@ const KolakaUtaraMap = () => {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className=" aspect-square h-[80vh] w-[40vw] ">
+        <div className=" aspect-square sm:h-[50vh]  md:h-[70vh] lg:h-[80vh] w-screen  ">
           <svg
             viewBox={`0 0 ${scale + padding} ${scale + padding}`}
             className="w-full h-full rounded-lg"

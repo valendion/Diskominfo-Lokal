@@ -19,8 +19,8 @@
   width: fit-content;
   background-color: #fff;
   border-radius: 40px;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 1rem;
+  height: 1rem;
   opacity: 0.75;
   animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

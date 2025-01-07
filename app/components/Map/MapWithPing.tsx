@@ -6,7 +6,7 @@ import PingCircle from "../base/PingCircle";
 
 const MapWithPing = () => {
   return (
-    <div className="relative">
+    <div className="relative ">
       <KolakaUtaraMap />
 
       <div className="absolute bottom-[15%] left-[45.40625%]">
