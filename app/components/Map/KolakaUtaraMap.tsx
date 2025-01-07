@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Map } from "lucide-react";
 import { geoJsonKolakaUtara } from "~/utils/const/CoordinateMap";
+import PingCircle from "../base/PingCircle";
+import { Tooltip } from "flowbite-react";
 
 const colorMapPolygon = [
   "#979797",
@@ -75,11 +77,190 @@ const KolakaUtaraMap = () => {
           <h2 className="text-xl font-bold">Peta Kolaka Utara</h2>
         </div>
       </div>
-      <div className="flex justify-center">
-        <div className=" aspect-square sm:h-[50vh]  md:h-[70vh] lg:h-[80vh] w-screen  ">
+      <div className="flex justify-center ">
+        <div className="   h-[700px]  max-w-[600px] relative  overflow-x-auto ">
+          {/* <div className="absolute bottom-[15%] left-[45.40625%]">
+            <Tooltip content="Wawo" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[19.5%] left-[44.40625%]">
+            <Tooltip content="Lambai" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[20.5%] left-[38.40625%]">
+            <Tooltip content="Ranteangin" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[26%] left-[34.40625%]">
+            <Tooltip content="Lasusua" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[34%] left-[32.40625%]">
+            <Tooltip content="Katoi" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[32%] left-[43.40625%]">
+            <Tooltip content="Kodeoha" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[39%] left-[39.40625%]">
+            <Tooltip content="Tiwu" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[41%] left-[44.40625%]">
+            <Tooltip content="Ngapa" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[45%] left-[36.40625%]">
+            <Tooltip content="Wotunohu" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[46.5%] left-[44.40625%]">
+            <Tooltip content="Pakue" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[50.5%] left-[55.40625%]">
+            <Tooltip content="Pakue Tengah" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[44.5%] left-[55.40625%]">
+            <Tooltip content="Pakue Utara" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[38.5%] left-[55.40625%]">
+            <Tooltip content="Batu Putih" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[28.5%] left-[60%]">
+            <Tooltip content="Porehu" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[20.5%] left-[45.40625%]">
+            <Tooltip content="Tolala" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div> */}
+
+          <div className="absolute bottom-[160px] left-[310px]">
+            <Tooltip content="Wawo" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[173px] left-[260px]">
+            <Tooltip content="Lambai" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[175px] left-[175px]">
+            <Tooltip content="Ranteangin" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[210px] left-[145px]">
+            <Tooltip content="Lasusua" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[240px] left-[175px]">
+            <Tooltip content="Katoi" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[282px] left-[150px]">
+            <Tooltip content="Kodeoha" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[290px] left-[200px]">
+            <Tooltip content="Tiwu" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[300px] left-[260px]">
+            <Tooltip content="Ngapa" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[329px] left-[165px]">
+            <Tooltip content="Wotunohu" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute bottom-[340px] left-[260px]">
+            <Tooltip content="Pakue" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[335px] left-[340px]">
+            <Tooltip content="Pakue Tengah" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[295px] left-[320px]">
+            <Tooltip content="Pakue Utara" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[265px] left-[340px]">
+            <Tooltip content="Batu Putih" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[200px] left-[360px]">
+            <Tooltip content="Porehu" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
+
+          <div className="absolute top-[160px] left-[280px]">
+            <Tooltip content="Tolala" style="light" className="">
+              <PingCircle />
+            </Tooltip>
+          </div>
           <svg
             viewBox={`0 0 ${scale + padding} ${scale + padding}`}
-            className="w-full h-full rounded-lg"
+            className=" h-[700px]  max-w-[600px] rounded-lg"
           >
             {geoJsonKolakaUtara[0].features.map((feature) => {
               const transformedCoords = transformCoordinates(
