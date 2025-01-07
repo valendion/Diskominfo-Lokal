@@ -10,8 +10,8 @@
   width: fit-content;
   background-color: #fff;
   border-radius: 40px;
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 .heartbeat {
@@ -19,8 +19,8 @@
   width: fit-content;
   background-color: #fff;
   border-radius: 40px;
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
   opacity: 0.75;
   animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

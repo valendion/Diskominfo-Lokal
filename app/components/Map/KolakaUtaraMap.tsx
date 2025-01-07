@@ -2,24 +2,6 @@ import { useState } from "react";
 import { Map } from "lucide-react";
 import { geoJsonKolakaUtara } from "~/utils/const/CoordinateMap";
 
-// const colorMapPolygon = [
-//   "#1D267D",
-//   "#0A2647",
-//   "#4335A7",
-//   "#432E54",
-//   "#9EADC8",
-//   "#B9E28C",
-//   "#D6D84F",
-//   "#525B44",
-//   "#2A3335",
-//   "#0A97B0",
-//   "#D91656",
-//   "#EB5B00",
-//   "#3B1C32",
-//   "#EB3678",
-//   "#005B41",
-// ];
-
 const colorMapPolygon = [
   "#979797",
   "#979797",
@@ -40,11 +22,8 @@ const colorMapPolygon = [
 
 const KolakaUtaraMap = () => {
   const [hoveredRegion, setHoveredRegion] = useState(null);
-  const [name, setName] = useState({
-    content: "",
-  });
+  const [name, setName] = useState({ content: "" });
 
-  // Extract regions from geoJSON data
   const regions = geoJsonKolakaUtara[0].features
     .map((feature) => ({
       name: feature.properties.name,
@@ -52,7 +31,6 @@ const KolakaUtaraMap = () => {
     }))
     .sort((a, b) => a.order - b.order);
 
-  // Calculate SVG viewBox based on coordinate bounds
   const coordinates = geoJsonKolakaUtara[0].features.flatMap(
     (feature) => feature.geometry.coordinates[0]
   );
@@ -67,25 +45,20 @@ const KolakaUtaraMap = () => {
     { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity }
   );
 
-  // Scale and transform coordinates to fit SVG
-  const scale = 100;
-  const padding = 30;
+  const scale = 30; // Perbesar peta
+  const width = bounds.maxX - bounds.minX;
+  const height = bounds.maxY - bounds.minY;
+  const padding = 10; // Kurangi padding agar lebih rapat
 
   const transformCoordinates = (coords) => {
     return coords.map((coord) => [
-      ((coord[0] - bounds.minX) / (bounds.maxX - bounds.minX)) * scale +
-        padding,
-      // Flip the Y-axis to correct the inverted map
-      scale +
-        padding -
-        ((coord[1] - bounds.minY) / (bounds.maxY - bounds.minY)) * scale,
+      ((coord[0] - bounds.minX) / width) * scale + padding / 2,
+      scale - ((coord[1] - bounds.minY) / height) * scale + padding / 2,
     ]);
   };
 
   const handleMouseMove = (e, name) => {
-    setName({
-      content: name,
-    });
+    setName({ content: name });
     setHoveredRegion(name);
   };
 
@@ -95,43 +68,46 @@ const KolakaUtaraMap = () => {
   };
 
   return (
-    <div className="w-full bg-white ">
+    <div className="w-full bg-white">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Map className="h-6 w-6" />
           <h2 className="text-xl font-bold">Peta Kolaka Utara</h2>
         </div>
       </div>
+      <div className="flex justify-center">
+        <div className=" aspect-square h-[80vh] w-[40vw] ">
+          <svg
+            viewBox={`0 0 ${scale + padding} ${scale + padding}`}
+            className="w-full h-full rounded-lg"
+          >
+            {geoJsonKolakaUtara[0].features.map((feature) => {
+              const transformedCoords = transformCoordinates(
+                feature.geometry.coordinates[0]
+              );
+              const pathData = `M ${transformedCoords
+                .map((coord) => coord.join(","))
+                .join(" L ")} Z`;
 
-      <div className="relative aspect-square">
-        <svg
-          viewBox={`0 0 ${scale + padding * 2} ${scale + padding * 2}`}
-          className="w-full h-full rounded-lg"
-        >
-          {geoJsonKolakaUtara[0].features.map((feature) => {
-            const transformedCoords = transformCoordinates(
-              feature.geometry.coordinates[0]
-            );
-            const pathData = `M ${transformedCoords
-              .map((coord) => coord.join(","))
-              .join(" L ")} Z`;
+              const color = colorMapPolygon[feature.properties.order - 1];
 
-            const color = colorMapPolygon[feature.properties.order - 1];
-
-            return (
-              <path
-                d={pathData}
-                fill={color}
-                key={feature.properties.name}
-                stroke="grey"
-                strokeWidth="1"
-                className="transition-all duration-200"
-                onMouseMove={(e) => handleMouseMove(e, feature.properties.name)}
-                onMouseLeave={handleMouseLeave}
-              />
-            );
-          })}
-        </svg>
+              return (
+                <path
+                  d={pathData}
+                  fill={color}
+                  key={feature.properties.name}
+                  stroke="grey"
+                  strokeWidth="0.1"
+                  className="transition-all duration-200"
+                  onMouseMove={(e) =>
+                    handleMouseMove(e, feature.properties.name)
+                  }
+                  onMouseLeave={handleMouseLeave}
+                />
+              );
+            })}
+          </svg>
+        </div>
       </div>
     </div>
   );
