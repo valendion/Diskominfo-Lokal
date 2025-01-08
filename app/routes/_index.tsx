@@ -131,7 +131,7 @@ export default function Index() {
   // const { news = [], bps = [], bpsPage } = useLoaderData<LoaderData>();
 
   return (
-    <div className="wrapper-simple-screen wrapper-simple-padding relative">
+    <div className="wrapper-simple-screen wrapper-simple-padding ">
       <div className="flex flex-col ">
         <div className="h-[80vh] relative">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
