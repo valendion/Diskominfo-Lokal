@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Map } from "lucide-react";
 import { geoJsonKolakaUtara } from "~/utils/const/CoordinateMap";
-import PingCircle from "../base/PingCircle";
+import PingCircle from "../../../base/PingCircle";
 import { Tooltip } from "flowbite-react";
 
 const colorMapPolygon = [

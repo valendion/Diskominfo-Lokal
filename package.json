@@ -13,12 +13,14 @@
     "typegen": "wrangler types"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@remix-run/cloudflare": "^2.15.1",
     "@remix-run/cloudflare-pages": "^2.15.1",
     "@remix-run/node": "^2.15.1",
     "@remix-run/react": "^2.15.0",
     "@remix-run/server-runtime": "^2.15.1",
     "@types/leaflet": "^1.9.15",
+    "gsap": "^3.12.5",
     "isbot": "^4.1.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.468.0",
@@ -26,7 +28,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-leaflet": "^4.2.1",
-    "react-scroll-parallax": "^3.4.5",
     "remix-utils": "^7.7.0"
   },
   "devDependencies": {

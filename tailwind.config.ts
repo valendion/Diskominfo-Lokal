@@ -20,6 +20,9 @@ export default {
         ],
         tagline: ["Emilys Candy", "serif"],
       },
+      colors: {
+        "blue-primary": "#3498db",
+      },
     },
   },
   plugins: [flowbite.plugin()],

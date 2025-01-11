@@ -6,11 +6,12 @@ import { ClientOnly } from "remix-utils/client-only";
 
 import Tagline from "~/components/base/Tagline";
 import BPSBook from "~/components/bps/BPSBook";
-import KolakaUtaraMap from "~/components/Map/KolakaUtaraMap";
-import MapWithPing from "~/components/Map/MapWithPing";
-import MapBody from "~/components/Map/MapBody.client";
-import PingGrupAnimation from "~/components/hero/PingGrupAnimation";
-import Title from "~/components/hero/Title";
+import KolakaUtaraMap from "~/components/page/index/Map/KolakaUtaraMap";
+import MapWithPing from "~/components/page/index/Map/MapWithPing";
+import MapBody from "~/components/page/index/Map/MapBody.client";
+import PingGrupAnimation from "~/components/page/index/hero/PingGrupAnimation";
+import Title from "~/components/page/index/hero/Title";
+import Network from "~/components/page/index/network/Network";
 
 // Meta
 export const meta: MetaFunction = () => {
@@ -174,6 +175,9 @@ export default function Index() {
           }
         </ClientOnly>
       </div> */}
+
+      <ClientOnly>{() => <Network />}</ClientOnly>
+      <ClientOnly>{() => <div className="h-screen" />}</ClientOnly>
     </div>
   );
 }
