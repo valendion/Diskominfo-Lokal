@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 
 import { useGSAP } from "@gsap/react";
 import Buble from "./Buble";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 const Network = () => {
   // Referensi untuk elemen bubble
@@ -197,15 +197,13 @@ const Network = () => {
     if (buble4Ref.current) {
       gsap.fromTo(
         buble4Ref.current,
-        { x: "-50%", y: "100%", opacity: 0 }, // Awal: kiri bawah
+        { x: "-50%", y: "100%", opacity: 0 },
         {
-          x: "-30%", // Target posisi horizontal: tengah
-          y: "-100%", // Target posisi vertikal: tengah
+          x: "-30%",
+          y: "-100%",
           opacity: 1,
           duration: 2,
-
           ease: "power3.inOut",
-
           scrollTrigger: {
             trigger: buble1Ref.current, // Elemen yang memicu animasi
             scrub: 1, // Animasi berjalan sesuai dengan scroll
