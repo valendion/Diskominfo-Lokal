@@ -176,8 +176,10 @@ export default function Index() {
         </ClientOnly>
       </div> */}
 
+      {/* Buble */}
+      {/* 
       <ClientOnly>{() => <Network />}</ClientOnly>
-      <ClientOnly>{() => <div className="h-screen" />}</ClientOnly>
+      <ClientOnly>{() => <div className="h-screen" />}</ClientOnly> */}
     </div>
   );
 }

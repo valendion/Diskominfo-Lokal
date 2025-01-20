@@ -9,6 +9,7 @@ import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 import Navbar from "./components/navbar/Navbar";
+import Header from "./components/header/Header";
 
 // import "leaflet/dist/leaflet.css";
 export const links: LinksFunction = () => [
@@ -35,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex flex-col">
         <header>
-          <Navbar />
+          <Header />
         </header>
         <main className="flex-grow"> {children}</main>
 
