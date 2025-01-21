@@ -64,7 +64,7 @@ const HeaderMobile = () => {
         <div className="w-screen h-max mt-28">
           <div className="flex flex-col  justify-start mx-5">
             <NavLink
-              to="/faq"
+              to="/menu1"
               className={({ isActive }) =>
                 `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
@@ -80,7 +80,7 @@ const HeaderMobile = () => {
             <p className="h-[1px] w-full bg-gray-400"></p>
 
             <NavLink
-              to="/faq"
+              to="/menu2"
               className={({ isActive }) =>
                 `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
@@ -96,7 +96,7 @@ const HeaderMobile = () => {
             <p className="h-[1px] w-full bg-gray-400"></p>
 
             <NavLink
-              to="/faq"
+              to="/menu3"
               className={({ isActive }) =>
                 `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
