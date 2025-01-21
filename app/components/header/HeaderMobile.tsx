@@ -66,7 +66,7 @@ const HeaderMobile = () => {
             <NavLink
               to="/faq"
               className={({ isActive }) =>
-                `w-full text-2xl font-semibold mt-10 mb-7 cursor-pointer ${
+                `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
                 }`
               }
@@ -82,7 +82,7 @@ const HeaderMobile = () => {
             <NavLink
               to="/faq"
               className={({ isActive }) =>
-                `w-full text-2xl font-semibold mt-10 mb-7 cursor-pointer ${
+                `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
                 }`
               }
@@ -98,7 +98,7 @@ const HeaderMobile = () => {
             <NavLink
               to="/faq"
               className={({ isActive }) =>
-                `w-full text-2xl font-semibold mt-10 mb-7 cursor-pointer ${
+                `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
                 }`
               }
@@ -114,7 +114,7 @@ const HeaderMobile = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `w-full text-2xl font-semibold  mt-10 mb-7 cursor-pointer ${
+                `w-full text-2xl font-semibold  mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
                 }`
               }
@@ -130,7 +130,7 @@ const HeaderMobile = () => {
             <NavLink
               to="/faq"
               className={({ isActive }) =>
-                `w-full text-2xl font-semibold mt-10 mb-7 cursor-pointer ${
+                `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
                 }`
               }
