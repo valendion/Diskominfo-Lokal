@@ -19,6 +19,7 @@ export default {
           "Noto Color Emoji",
         ],
         tagline: ["Emilys Candy", "serif"],
+        Montserrat: ["Montserrat", "serif"],
       },
       colors: {
         "blue-primary": "#3498db",

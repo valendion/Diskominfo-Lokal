@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Delius&family=Delius+Swash+Caps&family=Emilys+Candy&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,5 +11,13 @@
 
   .wrapper-simple-padding {
     @apply p-4 sm:p-6 lg:p-8;
+  }
+
+  .ml-borderline {
+    @apply ml-10 md:ml-20 lg:ml-32;
+  }
+
+  .mt-borderline {
+    @apply mt-16;
   }
 }

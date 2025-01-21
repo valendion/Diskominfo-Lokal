@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { Equal } from "lucide-react";
 import { NavLink } from "@remix-run/react";
 import { useEffect, useLayoutEffect, useState } from "react";
 
@@ -26,14 +26,19 @@ const Header = () => {
   return (
     <div className="grid grid-cols-8 -mt-1">
       {/* Logo Section */}
-      <div className="flex justify-center items-center p-5 col-span-2 h-40">
+      <NavLink
+        to={"/"}
+        className="flex justify-center items-center p-5 col-span-2 h-40"
+      >
         <img
           src="cropped-logo-kominfo.jpg"
           alt="Icon Navbar"
           className="w-12 h-12 mr-4"
         />
-        <p className="text-3xl font-medium">Diskominfo</p>
-      </div>
+        <p className="text-xl md:text-2xl lg:text-4xl font-semibold font-Montserrat">
+          Diskominfo
+        </p>
+      </NavLink>
 
       <NavLink
         to={"/menu1"}
@@ -123,7 +128,7 @@ const Header = () => {
         }}
       >
         {/* Ikon Menu tetap di tengah */}
-        <Menu className="size-10 relative z-10" />
+        <Equal className="size-20 relative z-10" />
 
         {/* Layer untuk animasi */}
         <div
@@ -137,7 +142,7 @@ const Header = () => {
       </div>
 
       <div
-        className={`fixed top-[75px] -ml-1 right-0 left-0 bg-black h-screen overflow-hidden transition-transform duration-300 mt-20                                                 ${
+        className={`fixed top-[75px] z-40 -ml-1 right-0 left-0 bg-black h-screen overflow-hidden transition-transform duration-300 mt-20                                                 ${
           isOpen ? "scale-y-100" : "scale-y-0"
         } origin-bottom`}
         onClick={() => setIsOpen(false)}
