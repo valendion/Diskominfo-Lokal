@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
 
 export const useMediaQuery = (query: string): boolean => {
-  const [matches, setMatches] = useState(window.matchMedia(query).matches);
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia(query);
-    const listener = (event: MediaQueryListEvent) => setMatches(event.matches);
+    // Check if the window object is available
+    if (typeof window !== "undefined") {
+      const mediaQueryList = window.matchMedia(query);
+      setMatches(mediaQueryList.matches);
 
-    mediaQueryList.addEventListener("change", listener);
-    return () => mediaQueryList.removeEventListener("change", listener);
+      const listener = (event: MediaQueryListEvent) =>
+        setMatches(event.matches);
+
+      mediaQueryList.addEventListener("change", listener);
+      return () => mediaQueryList.removeEventListener("change", listener);
+    }
   }, [query]);
 
   return matches;
