@@ -1,28 +1,12 @@
 import { Equal } from "lucide-react";
 import { NavLink } from "@remix-run/react";
 import { useEffect, useLayoutEffect, useState } from "react";
+import { useMenuStore, useSidebarStore } from "~/store/navbarStore";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [textMenu, setTextMenu] = useState("");
+  const { isOpen, toggleSidebar, closeSidebar } = useSidebarStore();
+  const { textMenu, setTextMenu } = useMenuStore();
 
-  // Synchronize initially
-  useLayoutEffect(() => {
-    const savedState = window.localStorage.getItem("sidebar") === "true";
-    setIsOpen(savedState);
-
-    const savedStateTextMenu =
-      window.localStorage.getItem("menu") !== null
-        ? window.localStorage.getItem("menu")
-        : "";
-    setTextMenu(savedStateTextMenu);
-  }, []);
-
-  // Synchronize on change
-  useEffect(() => {
-    window.localStorage.setItem("sidebar", isOpen.toString());
-    window.localStorage.setItem("menu", textMenu.toString());
-  }, [isOpen, textMenu]);
   return (
     <div className="grid grid-cols-8 -mt-1">
       {/* Logo Section */}
@@ -43,7 +27,7 @@ const Header = () => {
       <NavLink
         to={"/menu1"}
         className={({ isActive }) =>
-          `relative flex justify-center  hover:border-b-black items-center p-5 border-[1px] border-gray-300 ${
+          `relative flex justify-center  hover:border-b-black items-center p-5 border-[0.5px] border-gray-300 ${
             isActive ? "text-white" : "text-black"
           }`
         }
@@ -69,7 +53,7 @@ const Header = () => {
       <NavLink
         to={"/menu2"}
         className={({ isActive }) =>
-          `relative flex justify-center hover:border-b-black  items-center p-5 border-[1px] border-gray-300 ${
+          `relative flex justify-center hover:border-b-black  items-center p-5 border-[0.5px] border-gray-300 ${
             isActive ? "text-white" : "text-black"
           }`
         }
@@ -95,7 +79,7 @@ const Header = () => {
       <NavLink
         to={"/menu3"}
         className={({ isActive }) =>
-          `relative flex justify-center hover:border-b-black  items-center p-5 border-[1px] border-gray-300 ${
+          `relative flex justify-center hover:border-b-black  items-center p-5 border-[0.5px] border-gray-300 ${
             isActive ? "text-white border-r-black" : "text-black"
           }`
         }
@@ -120,15 +104,15 @@ const Header = () => {
 
       {/* Menu */}
       <div
-        className={`relative flex justify-center items-center p-5 border-[1px] border-gray-300 hover:border-b-black cursor-pointer ${
+        className={`relative flex justify-center items-center p-5 border-[0.5px] border-gray-300 hover:border-b-black cursor-pointer ${
           isOpen ? "text-white border-l-black" : "text-black"
         }`}
         onClick={() => {
-          setIsOpen((prev) => !prev);
+          toggleSidebar((prev) => !prev);
         }}
       >
         {/* Ikon Menu tetap di tengah */}
-        <Equal className="size-20 relative z-10" />
+        <Equal className="size-20 relative z-10 stroke-[0.5px]" />
 
         {/* Layer untuk animasi */}
         <div
@@ -145,7 +129,7 @@ const Header = () => {
         className={`fixed top-[75px] z-40 -ml-1 right-0 left-0 bg-black h-screen overflow-hidden transition-transform duration-300 mt-20                                                 ${
           isOpen ? "scale-y-100" : "scale-y-0"
         } origin-bottom`}
-        onClick={() => setIsOpen(false)}
+        onClick={() => closeSidebar()}
       >
         <div className="grid grid-cols-8 p-5">
           <div className="grid col-start-6 gap-4">
@@ -157,7 +141,7 @@ const Header = () => {
                 }`
               }
               onClick={() => {
-                setIsOpen(false);
+                closeSidebar();
                 setTextMenu("About");
               }}
             >
@@ -172,7 +156,7 @@ const Header = () => {
                 }`
               }
               onClick={() => {
-                setIsOpen(false);
+                toggleSidebar(false);
                 setTextMenu("FAQs");
               }}
             >

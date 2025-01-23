@@ -56,7 +56,7 @@ const HeaderMobile = () => {
       </div>
 
       <div
-        className={`fixed  bg-black h-screen overflow-hidden transition-transform duration-300 mt-20                                                 ${
+        className={`fixed z-40 bg-black h-screen overflow-hidden transition-transform duration-300 mt-20                                                 ${
           isOpen ? "scale-y-100" : "scale-y-0"
         } origin-bottom`}
         onClick={() => setIsOpen(false)}

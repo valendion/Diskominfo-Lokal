@@ -8,10 +8,10 @@ import {
 import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
-import Navbar from "./components/navbar/Navbar";
-import Header from "./components/header/Header";
-import HeaderMobile from "./components/header/HeaderMobile";
+
 import HeaderResponsive from "./components/header/HeaderResponsive";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { useSidebarStore } from "./store/navbarStore";
 
 // import "leaflet/dist/leaflet.css";
 export const links: LinksFunction = () => [
@@ -28,6 +28,7 @@ export const links: LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { isOpen } = useSidebarStore();
   return (
     <html lang="en">
       <head>
@@ -36,7 +37,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="flex flex-col">
+      <body className={`flex flex-col ${isOpen ? "overflow-hidden" : ""}`}>
         <header>
           <HeaderResponsive />
         </header>
