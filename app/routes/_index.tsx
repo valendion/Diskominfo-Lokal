@@ -12,6 +12,7 @@ import MapBody from "~/components/page/index/Map/MapBody.client";
 import PingGrupAnimation from "~/components/page/index/hero/PingGrupAnimation";
 import Title from "~/components/page/index/hero/Title";
 import Network from "~/components/page/index/network/Network";
+import TitleList from "~/components/page/index/list-section/Title";
 
 // Meta
 export const meta: MetaFunction = () => {
@@ -132,7 +133,8 @@ export default function Index() {
   // const { news = [], bps = [], bpsPage } = useLoaderData<LoaderData>();
 
   return (
-    <div className="wrapper-simple-screen wrapper-simple-padding ">
+    <div className=" wrapper-simple-padding-x ">
+      {/* <div className="wrapper-simple-screen wrapper-simple-padding "></div> */}
       <div className="flex flex-col ">
         {/* Buble 45 derajat */}
         {/* <div className="h-[80vh] relative">
@@ -152,6 +154,8 @@ export default function Index() {
           {() => <MapWithPing />}
         </ClientOnly>
       </div>
+
+      <TitleList />
 
       {/* <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>

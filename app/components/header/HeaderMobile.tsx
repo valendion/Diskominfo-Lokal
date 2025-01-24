@@ -1,20 +1,9 @@
 import { NavLink } from "@remix-run/react";
 import { Equal, X } from "lucide-react";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useSidebarStore } from "~/store/navbarStore";
 
 const HeaderMobile = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Synchronize initially
-  useLayoutEffect(() => {
-    const savedState = window.localStorage.getItem("sidebar") === "true";
-    setIsOpen(savedState);
-  }, []);
-
-  // Synchronize on change
-  useEffect(() => {
-    window.localStorage.setItem("sidebar", isOpen.toString());
-  }, [isOpen]);
+  const { isOpen, toggleSidebar, closeSidebar } = useSidebarStore();
   return (
     <div className="flex justify-between -mt-1">
       <div>
@@ -37,7 +26,7 @@ const HeaderMobile = () => {
           isOpen ? "text-white border-l-black" : "text-black"
         }`}
         onClick={() => {
-          setIsOpen((prev) => !prev);
+          toggleSidebar((prev) => !prev);
         }}
       >
         {/* Ikon Menu tetap di tengah */}
@@ -59,7 +48,7 @@ const HeaderMobile = () => {
         className={`fixed z-40 bg-black h-screen overflow-hidden transition-transform duration-300 mt-20                                                 ${
           isOpen ? "scale-y-100" : "scale-y-0"
         } origin-bottom`}
-        onClick={() => setIsOpen(false)}
+        onClick={() => closeSidebar()}
       >
         <div className="w-screen h-max mt-28">
           <div className="flex flex-col  justify-start mx-5">
@@ -71,7 +60,7 @@ const HeaderMobile = () => {
                 }`
               }
               onClick={() => {
-                setIsOpen(false);
+                closeSidebar();
               }}
             >
               Menu 1
@@ -87,7 +76,7 @@ const HeaderMobile = () => {
                 }`
               }
               onClick={() => {
-                setIsOpen(false);
+                closeSidebar();
               }}
             >
               Menu 2
@@ -103,7 +92,7 @@ const HeaderMobile = () => {
                 }`
               }
               onClick={() => {
-                setIsOpen(false);
+                closeSidebar();
               }}
             >
               Menu 3
@@ -119,7 +108,7 @@ const HeaderMobile = () => {
                 }`
               }
               onClick={() => {
-                setIsOpen(false);
+                closeSidebar();
               }}
             >
               About
@@ -135,7 +124,7 @@ const HeaderMobile = () => {
                 }`
               }
               onClick={() => {
-                setIsOpen(false);
+                closeSidebar();
               }}
             >
               FAQs
