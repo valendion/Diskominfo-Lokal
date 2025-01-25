@@ -13,6 +13,7 @@ import PingGrupAnimation from "~/components/page/index/hero/PingGrupAnimation";
 import Title from "~/components/page/index/hero/Title";
 import Network from "~/components/page/index/network/Network";
 import TitleList from "~/components/page/index/list-section/Title";
+import LayoutList from "~/components/page/index/list-section/LayoutList";
 
 // Meta
 export const meta: MetaFunction = () => {
@@ -154,8 +155,7 @@ export default function Index() {
           {() => <MapWithPing />}
         </ClientOnly>
       </div>
-
-      <TitleList />
+      <LayoutList />
 
       {/* <div className="mt-8">
         <ClientOnly fallback={<div>Loading news...</div>}>
