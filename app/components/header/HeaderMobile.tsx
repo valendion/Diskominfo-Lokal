@@ -5,20 +5,17 @@ import { useSidebarStore } from "~/store/navbarStore";
 const HeaderMobile = () => {
   const { isOpen, toggleSidebar, closeSidebar } = useSidebarStore();
   return (
-    <div className="flex justify-between -mt-1">
-      <div>
+    <div className="flex justify-between -mt-1 border-b-[0.5px] border-gray-300">
+      <div className="">
         {" "}
-        <NavLink
-          to={"/"}
-          className="flex justify-center items-center p-5 col-span-2 h-20"
-        >
+        <div className="flex justify-center items-center p-5 col-span-2 h-20">
           <img
             src="cropped-logo-kominfo.jpg"
             alt="Icon Navbar"
             className="w-12 h-12 mr-4 "
           />
           <p className="text-3xl font-semibold font-Montserrat">Diskominfo</p>
-        </NavLink>
+        </div>
       </div>
 
       <div
@@ -53,7 +50,7 @@ const HeaderMobile = () => {
         <div className="w-screen h-max mt-28">
           <div className="flex flex-col  justify-start mx-5">
             <NavLink
-              to="/menu1"
+              to="/"
               className={({ isActive }) =>
                 `w-full text-2xl font-semibold mt-10 mb-5 cursor-pointer ${
                   isActive ? "text-white" : "text-gray-400 hover:text-white"
@@ -63,7 +60,7 @@ const HeaderMobile = () => {
                 closeSidebar();
               }}
             >
-              Menu 1
+              Home
             </NavLink>
 
             <p className="h-[1px] w-full bg-gray-400"></p>

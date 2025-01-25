@@ -8,12 +8,9 @@ const Header = () => {
   const { textMenu, setTextMenu } = useMenuStore();
 
   return (
-    <div className="grid grid-cols-8 -mt-1">
+    <div className="grid grid-cols-8 -mt-1 border-b-[0.5px] border-gray-300">
       {/* Logo Section */}
-      <NavLink
-        to={"/"}
-        className="flex justify-center items-center p-5 col-span-2 h-40"
-      >
+      <div className="flex justify-center items-center p-5 col-span-2 h-40">
         <img
           src="cropped-logo-kominfo.jpg"
           alt="Icon Navbar"
@@ -22,10 +19,10 @@ const Header = () => {
         <p className="text-xl md:text-2xl lg:text-4xl font-semibold font-Montserrat">
           Diskominfo
         </p>
-      </NavLink>
+      </div>
 
       <NavLink
-        to={"/menu1"}
+        to={"/"}
         className={({ isActive }) =>
           `relative flex justify-center  hover:border-b-black items-center p-5 border-[0.5px] border-gray-300 ${
             isActive ? "text-white" : "text-black"
@@ -38,7 +35,7 @@ const Header = () => {
         {({ isActive }) => {
           return (
             <>
-              <span className="relative z-10">Menu 1</span>
+              <span className="relative z-10">Home</span>
               {/* Layer untuk animasi */}
               <div
                 className={`absolute inset-0 bg-black transition-transform duration-300 transform ${
